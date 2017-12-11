@@ -22,7 +22,18 @@ defmodule M do
 		my_str = "Hello World"
 		IO.puts "Length is: #{String.length(my_str)}"
         longer_str = my_str <> " " <> "is longer"   # use <> to concatinate strings
-        IO.puts "Equal: #{"Egg" === ""}"    # === checks if both value and type are true
+        IO.puts "Equal: #{"Egg" === "egg"}"    # === checks if both value and type are true
+
+        IO.puts "Does Hello World Contain Hello? #{String.contains?(my_str, "Hello")}"
+        IO.puts "Character at index 4 is: #{String.at(my_str, 4)}"  # Indexing strings, can use String.slice to get substring
+
+        IO.inspect String.split(longer_str, " ")    #inspect prints internal representation of value
+        #split a string, longer_str using " " as delimiter
+        #String also has reverse, upcase, downcase (lower case), and capitalize (first character)
 	end
+
+    def pipe_me do
+      4 * 10 |> IO.puts   # can also pipe values to functions in Elixir
+    end
 
 end
