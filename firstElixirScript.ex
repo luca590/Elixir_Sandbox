@@ -32,6 +32,19 @@ defmodule M do
         #String also has reverse, upcase, downcase (lower case), and capitalize (first character)
 	end
 
+    def do_equality do
+        IO.puts "4 == 4.0: #{4 == 4.0}"     # True - Comparing values but not data types
+        IO.puts "4 === 4.0: #{4 === 4.0}"   # False - Comparing values and data types
+        IO.puts "4 != 4.0: #{4 != 4.0}"     # False
+        IO.puts "4 !=== 4.0: #{4 !=== 4.0}" # True
+        IO.puts "true and not true : #{true and (not true)}"  # and could be replace with or
+    end
+
+    def do_decision_making do
+       
+    
+    end
+
     def pipe_me do
       4 * 10 |> IO.puts   # can also pipe values to functions in Elixir
     end
