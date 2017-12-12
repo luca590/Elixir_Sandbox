@@ -36,17 +36,56 @@ defmodule M do
         IO.puts "4 == 4.0: #{4 == 4.0}"     # True - Comparing values but not data types
         IO.puts "4 === 4.0: #{4 === 4.0}"   # False - Comparing values and data types
         IO.puts "4 != 4.0: #{4 != 4.0}"     # False
-        IO.puts "4 !=== 4.0: #{4 !=== 4.0}" # True
+        IO.puts "4 !== 4.0: #{4 !== 4.0}" # True
         IO.puts "true and not true : #{true and (not true)}"  # and could be replace with or
     end
 
     def do_decision_making do
-       
-    
+        age = 16
+
+        if age > 18 do
+          IO.puts "Can vote"
+        else
+          IO.puts "Cannot vote"
+        end 
+
+        unless age === 18 do    # execute code unless...
+          IO.puts "You are not 18"
+        else
+          IO.puts "You are 18"
+        end
+
+        cond do   #conditinal statement, similar to switch-case
+          age >= 18 -> IO.puts "age >= 18"
+          age >= 16 -> IO.puts "age >= 16"
+          age >= 14 -> IO.puts "age >= 14"
+          true -> IO.puts "Age is < 14"   #default value
+        end
+            
     end
+
+    def case_statements do
+      my_variable = 100
+
+      case 2 do #can also put variable inside of case instead of 2
+        1 -> IO.puts "In case, variable is 1"
+        2 -> IO.puts "In case, variable is 2"
+        _-> IO.puts "Default case"
+      end
+
+      #Ternary operator
+      IO.puts "#{if my_variable > 50, do: "variable greater than 50", else: "variable not > 50"}"
+
+    end  
 
     def pipe_me do
       4 * 10 |> IO.puts   # can also pipe values to functions in Elixir
     end
 
 end
+
+
+
+
+
+
