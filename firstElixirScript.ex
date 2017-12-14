@@ -82,7 +82,54 @@ defmodule M do
       4 * 10 |> IO.puts   # can also pipe values to functions in Elixir
     end
 
+    def do_tuple_stuff do
+      my_tuple = {:thing1, :thing2, 5}
+
+      IO.puts "Is this is a tuple? #{is_tuple(my_tuple)}" 
+
+      my_tuple2 = Tuple.append(my_tuple, 6.6)  #need to create a new variable, all variables in elixir are constant
+      IO.puts "Get 1st index my_tuple2[1]: #{elem(my_tuple2, 3)}" #3rd index, not 3rd element
+      IO.puts "Tuple size is: #{tuple_size(my_tuple2)}"
+
+      my_tuple3 = Tuple.delete_at(my_tuple2, 2)   # Delete 2nd index, need to create new variable
+      my_tuple3 = Tuple.insert_at(my_tuple2, 2, :new_atom)   # Delete 2nd index, need to create new variable
+      tuple_with_5_zeros = Tuple.duplicate(0,5)
+
+      {color, dim1, dim2} = {:blue, 9, 10}  # Pattern matchine!!
+      IO.puts "Color in tuple is: #{color}"
+    end  
+
+    def do_list_stuff do  #similar syntax to arrays, but behave slightly differently
+      list1 = [1,2,3]
+      list2 = [4,5,6]
+
+      list_of_words = ["This", "is", "my", "list"]
+
+      IO.puts "list1 ++ list2: #{list1 ++ list2}"
+      IO.puts "list1 -- list2: #{list1 -- list2}"
+
+      IO.puts 5 in list2  # is 5 in list2?
+
+      [head | tail] = list1 ++ list2  # the head is 1st element (index 0) and the tail is everything else
+      IO.puts "head is: #{head}"
+
+      IO.write "Tail is: "  # IO.write does not print \n at end of line
+      IO.inspect tail       # Be careful with using IO.inspect, may need to specify type IO.inspect [98,99], char_lists: : as_lists
+
+      Enum.each tail, fn item ->
+        IO.puts item
+      end
+    end
+
+
 end
+
+
+
+
+
+
+
 
 
 
