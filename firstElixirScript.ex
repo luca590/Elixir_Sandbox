@@ -96,6 +96,7 @@ defmodule M do
       tuple_with_5_zeros = Tuple.duplicate(0,5)
 
       {color, dim1, dim2} = {:blue, 9, 10}  # Pattern matchine!!
+
       IO.puts "Color in tuple is: #{color}"
     end  
 
@@ -116,9 +117,19 @@ defmodule M do
       IO.write "Tail is: "  # IO.write does not print \n at end of line
       IO.inspect tail       # Be careful with using IO.inspect, may need to specify type IO.inspect [98,99], char_lists: : as_lists
 
-      Enum.each tail, fn item ->
-        IO.puts item
+      Enum.each tail, fn some_item ->
+        IO.puts some_item
       end
+
+      Enum.each list_of_words, fn word -> 
+        IO.puts word
+      end
+
+#    def display_list(my_list) do
+#      Enum.each my_list, thing_in_list
+#    end
+
+
     end
 
 
