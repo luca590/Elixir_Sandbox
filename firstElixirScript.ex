@@ -125,27 +125,25 @@ defmodule M do
         IO.puts word
       end
 
-      display_list_recursively(["thing1", "thing2", "thing 3"])
+      display_list_recursively(["thing1", "thing2", "thing3"])
+    end
 
     def display_list_recursively([first_thing_in_list|rest_of_list]) do
       IO.puts first_thing_in_list
       display_list_recursively(rest_of_list)
+      end
+
+      def display_list_recursively([]), do: nil   #do nil is basically void
+
+    def map_stuff do
+      family_map_strings = %{"dad" => "ken", "mom" => "denise", "brother" => "kristian", "sister" => "isabella"}
+      family_map_atoms = %{dad: "ken", mom: "denise", brother: "kristian", sister: "isabella"}
+
+      IO.puts "Family, map of strings, dad: #{family_map_strings["dad"]}"
+      IO.puts "Family, map of strings, mom: #{family_map_atoms.mom}"
     end
 
-    def display_list_recursively([]), do: nil
-
-  end
-
-
 end
-
-
-
-
-
-
-
-
 
 
 
