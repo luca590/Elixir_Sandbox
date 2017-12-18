@@ -125,12 +125,16 @@ defmodule M do
         IO.puts word
       end
 
-#    def display_list(my_list) do
-#      Enum.each my_list, thing_in_list
-#    end
+      display_list_recursively(["thing1", "thing2", "thing 3"])
 
-
+    def display_list_recursively([first_thing_in_list|rest_of_list]) do
+      IO.puts first_thing_in_list
+      display_list_recursively(rest_of_list)
     end
+
+    def display_list_recursively([]), do: nil
+
+  end
 
 
 end
