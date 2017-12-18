@@ -143,6 +143,27 @@ defmodule M do
       IO.puts "Family, map of strings, mom: #{family_map_atoms.mom}"
     end
 
+    def ananymous_functions do
+      IO.puts "In anamous function"
+      get_sum = fn(x,y) -> x + y end    # can create functions as such. Similar to "lambda"
+      get_less = &(&1-&2)   # a shorthand for ananymous functions
+
+      add_stuff = fn    # can have different situations for different number of arguments
+        {x,y} -> IO.puts "#{x} + #{y} = #{x+y}"
+        {x,y,z} -> IO.puts "#{x} + #{y} + #{z} = #{x+y+z}"
+        end
+
+      IO.puts "get sum is: #{get_sum.(10,11)}"
+      IO.puts "get less is: #{get_less.(10,11)}"
+      add_stuff.({10,11})  #if use IO.puts here, will just output "ok"
+      
+      function_with_default_values()
+    end
+
+    def function_with_default_values(x\\1, y\\2) do
+      IO.puts "In function with default values and x + y is: #{x+y}"
+    end
+
 end
 
 
