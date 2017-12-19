@@ -194,6 +194,16 @@ defmodule M do
       IO.inspect Enum.uniq([1,2,3,3,3,3,3]) # get unique values. Prints: [1,2,3]
     end
 
+    def list_comprehensions do
+      double_list = for x <- [1,2,3,4], do: x * 2 # list comprehensions start with 'for' then define a variable to use
+      IO.inspect double_list
+
+      get_evens = for x <- [5,6,7,8], rem(x,2) == 0, do: x   # if remainder of x and 2 is 0, add to new list
+      IO.inspect get_evens
+    end
+
+    # TODO: exception handeling
+    # TODO: concurrency
 
 end
 
