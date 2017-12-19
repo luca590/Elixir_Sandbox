@@ -166,14 +166,10 @@ defmodule M do
 
     def do_looping_stuff do   #because variables in elixir are immutable, looping happens with recursion
       add_recursively([1,2,3,4])
-
       loop(1,5)
-    
     end
-
     def add_recursively([]), do: 0
     def add_recursively([head|tail]), do: head + add_recursively(tail) #return head + tail, do: is return
-
     def loop(0,_), do: nil
     def loop(min, max) do
       IO.puts "Count is: #{min}"
@@ -184,6 +180,19 @@ defmodule M do
       end
     end
 
+    def enum_stuff do
+      IO.puts "Is 2 in the list [1,2,3,4,5]: #{Enum.any?([1,2,3,4,5], fn(x) -> x == 2 end)}"  #pass in list and function
+      IO.puts "Is 2 in the list [1,3,4,5]: #{Enum.any?([1,3,4,5], fn(x) -> x == 2 end)}"
+
+      double_list = Enum.map([1,2,3,4], fn(x) -> x * 2 end) #If use each, will print "ok", if use map, will print list
+      # This is because each only returns value :ok, it is not intended to produce new variables.
+      # Map will product new collection of items
+      IO.inspect double_list    # I think use inspect here because printing a list, wnat to print each element
+      sum_list = Enum.reduce(double_list, fn(x,y) -> x + y end)
+      IO.puts sum_list  #can use inspect or puts here, but better to use puts because single value
+
+      IO.inspect Enum.uniq([1,2,3,3,3,3,3]) # get unique values. Prints: [1,2,3]
+    end
 
 
 end
