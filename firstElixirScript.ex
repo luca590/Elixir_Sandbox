@@ -164,6 +164,28 @@ defmodule M do
       IO.puts "In function with default values and x + y is: #{x+y}"
     end
 
+    def do_looping_stuff do   #because variables in elixir are immutable, looping happens with recursion
+      add_recursively([1,2,3,4])
+
+      loop(1,5)
+    
+    end
+
+    def add_recursively([]), do: 0
+    def add_recursively([head|tail]), do: head + add_recursively(tail) #return head + tail, do: is return
+
+    def loop(0,_), do: nil
+    def loop(min, max) do
+      IO.puts "Count is: #{min}"
+      if max <= min do
+        loop(0,max) # Doesn't matter what 2nd argument is as long as first is 0
+      else
+      loop(min + 1, max)
+      end
+    end
+
+
+
 end
 
 
