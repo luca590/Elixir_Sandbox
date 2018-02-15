@@ -202,8 +202,20 @@ defmodule M do
       IO.inspect get_evens
     end
 
+    def try_catch_fun do
+      try do
+        raise "fail"
+        :did_not_raise
+      rescue
+        _ -> :rescued
+      end
+    end
+
     # TODO: exception handeling
-    # TODO: concurrency
+    
+    def do_concurrency do
+      spawn(fn() -> loop(1, 50) end)
+    end
 
 end
 
